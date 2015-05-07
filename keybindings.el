@@ -1,6 +1,9 @@
 ;; Autoindent
 (global-set-key "\C-m" 'newline-and-indent)
 
+;; Always allow tabs
+(global-set-key (kbd "TAB") 'self-insert-command);
+
 ;; Split windows
 (key-chord-define evil-normal-state-map "vv" 'split-window-right)
 (key-chord-define evil-normal-state-map "ss" 'split-window-below)

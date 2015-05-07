@@ -17,6 +17,8 @@
     ujelly-theme
     pbcopy
     mmm-mode
+    elixir-mode
+    writeroom-mode
     )
   "List of all packages to install and/or initialize. Built-in packages
 which require an initialization must be listed explicitly in the list.")
@@ -40,25 +42,24 @@ which require an initialization must be listed explicitly in the list.")
 (defun dberkom/init-mmm-mode ()
   (require 'mmm-mode)
   (mmm-add-classes
-    '((markdown-ruby
+   '((markdown-ruby
       :submode ruby-mode
       :face mmm-declaration-submode-face
-      :front "^```\s?ruby[\n\r]"
-      :back "^```$")))
+      :front "^```\s?ruby[\n]"
+      :back "^```")
 
-  (mmm-add-classes
-    '((markdown-elixir
+		(markdown-elixir
       :submode elixir-mode
       :face mmm-declaration-submode-face
-      :front "^```\s?elixir[\n\r]"
-      :back "^```$")))
+      :front "^```\s?elixir[\n]"
+      :back "^```")
 
-  (mmm-add-classes
-    '((markdown-js
+		(markdown-js
       :submode js-mode
       :face mmm-declaration-submode-face
-      :front "^```\s?javascript[\n\r]"
-      :back "^```$")))
+      :front "^```\s?javascript[\n]"
+      :back "^```")
+     ))
 
   (setq mmm-global-mode 't)
   (setq mmm-submode-decoration-level 0)
@@ -66,11 +67,6 @@ which require an initialization must be listed explicitly in the list.")
   (add-to-list 'mmm-mode-ext-classes-alist '(markdown-mode nil markdown-ruby))
   (add-to-list 'mmm-mode-ext-classes-alist '(markdown-mode nil markdown-elixir))
   (add-to-list 'mmm-mode-ext-classes-alist '(markdown-mode nil markdown-js))
-  )
-
-(defun dberkom/init-emacs-elixir ()
-  "Initialize emacs-elixir"
-  (require 'elixir-mode)
   )
 
 (defun dberkom/init-my-package ()
@@ -87,6 +83,14 @@ which require an initialization must be listed explicitly in the list.")
   (require 'key-chord)
   (key-chord-mode 1)
   (setq key-chord-two-keys-delay 0.075)
+  )
+
+(defun dberkom/init-elixir-mode ()
+	"Initialize elixir mode"
+  )
+
+(defun dberkom/init-writeroom-mode ()
+	"Initialize writeroom mode"
   )
 ;;
 ;; Often the body of an initialize function uses `use-package'
